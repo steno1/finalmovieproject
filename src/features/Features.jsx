@@ -9,7 +9,7 @@ const Features=({type})=>{
     also, if the prop of type is "movie" show "Movies", else show "Series" */}
     {type && (
         <div className="category">
-<span>{type==="movies"?"Movies":"Series"}</span>
+<span>{type==="movie"?"Movies":"Series"}</span>
 {/* Creating options*/}
 <select name="genre" id="genre">
 <option>Genre</option>

@@ -3,6 +3,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { useState } from "react";
+import {Link} from "react-router-dom"
 const Navbar=()=>{
 
     //making navbar to change color when scrolled
@@ -21,9 +22,15 @@ const Navbar=()=>{
 {/* left Navbar*/}
 <div className="left">
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQd31Qhaz7C5FWNL5gccili-3SyNnN807hbg&usqp=CAU" alt="movies"/>
+<Link to="/" className="link">
 <span>Homepage</span>
+</Link>
+<Link to="/series" className="link">
 <span>Series</span>
+</Link>
+<Link to="/movies" className="link">
 <span>Movies</span>
+</Link>
 <span>New and Popular</span>
 <span>My List</span>
 
