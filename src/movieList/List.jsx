@@ -4,7 +4,7 @@ import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutl
 import ListItem from "../listItem/listItem";
 import { useRef, useState } from "react";
 
-const List=()=>{
+const List=({listing})=>{
     //make the slider not to overflow
 const [slideNumber, setSlideNumber]=useState(0);
 
@@ -28,7 +28,7 @@ listRef.current.style.transform=`translateX(${230+distance}px)`
     }
     return(
         <div className="list">
-<span className="listTitle">Continue to watch</span>
+<span className="listTitle">{listing.title}</span>
 <div className="wrapper">
 <ArrowBackIosNewOutlinedIcon className="sliderArrow left"
     onClick={()=>handleClick("left")}
@@ -37,16 +37,15 @@ listRef.current.style.transform=`translateX(${230+distance}px)`
 <div className="container" ref={listRef}>
 {/* Each listItem in List contains a movie, 
 so each of the list component has 10 listItem, containing movies*/}
-<ListItem index={0}/>
-<ListItem index={1}/>
-<ListItem index={2}/>
-<ListItem index={3}/>
-<ListItem index={4}/>
-<ListItem index={5}/>
-<ListItem index={6}/>
-<ListItem index={7}/>
-<ListItem index={8}/>
-<ListItem index={9}/>
+
+{listing.content.map((itemId, i)=>{
+ //listing.content is the movie id, which is =itemId 
+ // index here may not be necessary again, because of itemId 
+   return (
+    <ListItem index={i} itemId={itemId}/>
+   ) 
+})}
+
 </div>
 <ArrowForwardIosOutlinedIcon className="sliderArrow right"
     onClick={()=>handleClick("right")}
